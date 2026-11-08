@@ -68,8 +68,13 @@ def main() -> None:
         c["preuves"] = [alias(x) for x in c["preuves"]]
     i = p["identite"]
 
+    manquants: set[str] = set()
+
     def trad(section: str, id_: str, champ: str, defaut):
-        return en.get(section, {}).get(id_, {}).get(champ, defaut)
+        v = en.get(section, {}).get(id_, {}).get(champ)
+        if v is None:
+            manquants.add(f"{section}.{id_}")  # affiché en français dans la version anglaise
+        return defaut if v is None else v
 
     formation = [
         {"id": f["id"], "debut": str(f.get("debut", "")), "fin": str(f.get("fin", "")),
@@ -154,6 +159,8 @@ def main() -> None:
         assert i["telephone"].replace(" ", "")[-6:] not in brut.replace(" ", ""), f"téléphone présent dans {f.name}"
         assert not [m for m in prive["interdits"] if m in brut.lower()], f"nom interdit dans {f.name}"
     (ICI / "src" / "donnees" / "profil.json").write_text(texte, encoding="utf-8")
+    if manquants:
+        print("TRADUCTION ANGLAISE MANQUANTE (contenu/en.yaml) :", ", ".join(sorted(manquants)))
     print(f"{len(experiences)} expériences, {len(projets)} projets, {len(competences)} compétences, {len(sortie['cv'])} CV")
 
 

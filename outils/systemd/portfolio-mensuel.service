@@ -1,0 +1,7 @@
+[Unit]
+Description=Mise à jour mensuelle du portfolio depuis le vault Carrière
+After=network-online.target
+
+[Service]
+Type=oneshot
+ExecStart=%h/PORTFOLIO/outils/mensuel.sh

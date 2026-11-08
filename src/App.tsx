@@ -11,6 +11,10 @@ import Curseur from "./composants/Curseur";
 import Rail from "./composants/Rail";
 import Projets from "./composants/Projets";
 import Pellicule from "./composants/Pellicule";
+import Conseil from "./composants/Conseil";
+
+// Écran tactile sans souris : pas de survol possible, on dit « touchez » au lieu de « survolez ».
+const TACTILE = typeof matchMedia !== "undefined" && matchMedia("(hover: none)").matches;
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -190,7 +194,7 @@ export default function App() {
         <a className="bouton magnet" href="#contact"><span>{t.contact}</span></a>
         <a className="bouton secondaire magnet" href={profil.cv[0]?.fichier} download><span>{t.cv}</span></a>
       </div>
-      {!recruteur && <p className="defiler apparait">{t.survolObjets}<br /><span className="defiler-fil" aria-hidden="true" />{t.defiler}</p>}
+      {!recruteur && <p className="defiler apparait">{TACTILE ? t.toucherObjets : t.survolObjets}<br /><span className="defiler-fil" aria-hidden="true" />{t.defiler}</p>}
     </div>
   );
 
@@ -208,6 +212,7 @@ export default function App() {
   return (
     <div ref={racine} className={recruteur ? "app recruteur" : "app"}>
       {!recruteur && <Intro />}
+      {!recruteur && <Conseil t={t.conseil} />}
       {!recruteur && <Suspense fallback={null}><Scene /></Suspense>}
       {!recruteur && <div className="voile-nuit" aria-hidden="true" />}
       {!recruteur && <div id="eclair" className="eclair" aria-hidden="true" />}

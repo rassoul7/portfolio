@@ -1,0 +1,10 @@
+[Unit]
+Description=Le 1er de chaque mois : mise à jour du portfolio
+
+[Timer]
+OnCalendar=*-*-01 10:00
+Persistent=true
+RandomizedDelaySec=15min
+
+[Install]
+WantedBy=timers.target
