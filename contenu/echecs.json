@@ -1,0 +1,14 @@
+{
+ "rapide": {
+  "actuel": 884,
+  "meilleur": 1037,
+  "parties": 2657
+ },
+ "blitz": {
+  "actuel": 707,
+  "meilleur": 812,
+  "parties": 991
+ },
+ "tactique": 1579,
+ "profil": "https://www.chess.com/member/RASSOUL_NAME"
+}

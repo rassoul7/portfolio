@@ -1,0 +1,94 @@
+# English text for the portfolio, keyed by the ids of ~/CARRIERE/profil/profil.yaml.
+# The French text comes straight from profil.yaml. Facts (dates, tools, links) are never duplicated here.
+
+accroche: >-
+  Final-year Computer Engineering student at ESP Dakar (graduating 2027), in an R&D work-study programme on
+  industrial digital twins. I design and ship complete applications, from the data model to deployment, with a
+  focus on applied AI, security and DevOps.
+
+formation:
+  dic: {diplome: "Engineering degree (DIC) in Computer Engineering, Master's level", ecole: "École Supérieure Polytechnique, Dakar (UCAD)"}
+  dut: {diplome: "University Diploma of Technology (DUT) in Computer Science", ecole: "École Supérieure Polytechnique, Dakar (UCAD)"}
+
+experiences:
+  alternance-rd:
+    poste: "R&D work-study student, industrial digital twin"
+    organisation: "Industrial cybersecurity software company"
+    puces:
+      - "Designing the automated digital-twin component of an OT visibility and detection platform: rebuilding a site from observed traffic and inventory, separating observed facts from hypotheses, with provenance and confidence for each item."
+      - "Designing and building the twin's interface (React 19, TypeScript, Three.js): 9 screens, 2D, process and history views, role-based access, automated accessibility tests (axe-core, Playwright)."
+  ipji:
+    poste: "Full-stack developer (internship), e-learning platform"
+    organisation: "IPJI, law and real-estate professions institute"
+    puces:
+      - "Wrote the technical scoping note from the academic department's requirements, then built the platform alone, in sprints, with a daily progress report."
+      - "Django REST Framework and PostgreSQL backend, Celery and Redis for reminders, MinIO storage; React frontend; deployment with Docker Compose."
+  engy:
+    poste: "Security intern, identity and access management (TerangaID project)"
+    organisation: "Engy Partners"
+    puces:
+      - "Configured roles, permissions and access policies in Keycloak; implemented secure authentication mechanisms."
+      - "Managed secrets (HashiCorp Vault) and certificates through an internal certificate authority (Smallstep step-ca)."
+  sensoft:
+    poste: "Backend developer intern (end-of-diploma internship)"
+    organisation: "SENSOFT"
+    puces:
+      - "Built REST APIs and Java microservices with Micronaut, connected to relational databases (MySQL)."
+      - "Asynchronous communication between services with Apache Kafka; containerisation with Docker."
+
+projets:
+  hints:
+    titre: "Hints, ESP's digital academic library"
+    role: "DevOps lead (IT committee)"
+    texte: "Past exams and resources shared between student years. Multi-stage Docker build, CI with lint, types, tests, Docker image and Playwright end-to-end tests, staging behind Traefik."
+  sensante:
+    titre: "SenSanté Pro, patient management"
+    role: "Main developer (team project)"
+    texte: "Microservices with an API gateway, an auth service and a patient service; infrastructure as code with Terraform."
+  zenvo:
+    titre: "ZENVO, financial literacy for ages 9 to 16"
+    role: "Technical co-founder"
+    texte: "Gamified platform for French-speaking Africa, sold through schools. Frontend, backend, database and deployment."
+  ayaqli:
+    titre: "Ayaqli, Quran reading and search app"
+    role: "Developer"
+    texte: "Flutter mobile app and FastAPI API (surahs, verses, translations, keyword search); pgvector schema ready for semantic search."
+  shadow:
+    titre: "Shadow & Justice, social deduction game"
+    role: "Developer (team project)"
+    texte: "Mobile game with no game master: the app assigns roles and runs turns, riddles and votes."
+  etat_art_nhi:
+    titre: "Literature review, security of non-human identities and AI agents"
+    role: "Author (1 month)"
+    texte: "PRISMA 2020 method on IEEE Xplore, ACM, arXiv and Springer: adapting IAM governance (Zero Trust, least privilege, secret lifecycle) to autonomous AI agents."
+
+engagements:
+  cee: {role: "President of the Academic Affairs Committee", organisation: "ESP student council"}
+  isoc_sn: {role: "Deputy Secretary General", organisation: "Internet Society, Senegal Chapter"}
+  isoc_esp: {role: "President", organisation: "ISOC ESP Club"}
+  petro: {role: "1st prize, Petrochallenge (INPG)", organisation: "team simulation of oil exploration"}
+
+categories:
+  "Langages": "Languages"
+  "Web et mobile": "Web and mobile"
+  "Backend": "Backend"
+  "Données": "Data"
+  "IA et recherche": "AI and research"
+  "Sécurité": "Security"
+  "DevOps et outils": "DevOps and tools"
+  "Conception": "Design and method"
+
+langues:
+  "Français": "French (fluent)"
+  "Wolof": "Wolof (native)"
+  "Anglais": "English (intermediate)"
+
+competences:
+  "jumeau": "Digital twins"
+  "llm": "Applied LLMs, RAG"
+  "prisma": "Literature review (PRISMA)"
+  "zero_trust": "Zero Trust, least privilege"
+  "ot": "OT monitoring (Zeek, Suricata, NetBox)"
+  "cadrage": "Scoping notes, sprints"
+  "qodana": "Static analysis (Qodana)"
+  "linux": "Linux"
