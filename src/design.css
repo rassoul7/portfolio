@@ -369,3 +369,20 @@ img.pg-image ~ .pg-hud { text-shadow: 0 1px 3px rgba(0,0,0,.85), 0 0 12px rgba(0
 .rail a::before { content: ""; position: absolute; inset: -6px -8px; }
 .preuve a::before, .passion > a::before { content: ""; position: absolute; inset: -4px -2px; }
 @media (pointer: coarse) { .marque { display: inline-flex; align-items: center; min-height: 44px; min-width: 44px; } }
+
+/* À propos : une vraie carte vitrée, largeur de lecture limitée, posée à gauche (le soleil est à droite) */
+.app:not(.recruteur) .apropos { width: min(640px, calc(100% - 32px)); margin-left: clamp(16px, 7vw, 120px); padding: 30px 34px 28px;
+  background: linear-gradient(160deg, rgba(9, 12, 18, .82), rgba(9, 12, 18, .62)); border: 1px solid var(--bord); border-radius: 22px;
+  backdrop-filter: blur(16px) saturate(1.15); -webkit-backdrop-filter: blur(16px) saturate(1.15); box-shadow: 0 30px 90px rgba(0, 0, 0, .4); }
+.apropos .compteur { font: 600 clamp(26px, 2.6vw, 38px)/1.05 var(--display); letter-spacing: -0.045em; color: var(--texte);
+  text-transform: none; margin: 0 0 16px; }
+.app .apropos-texte { font-size: clamp(17px, 1.2vw, 19px); line-height: 1.62; color: #E9EEF1; margin: 0; }
+.app .mission { margin: 20px 0 0; font-size: clamp(15px, 1vw, 16.5px) !important; line-height: 1.5; }
+.apropos .traits { margin-top: 20px; }
+@media (max-width: 700px) {
+  .app:not(.recruteur) .apropos { margin-inline: auto; padding: 20px 18px; top: 11vh; }
+  .apropos .compteur { font-size: 24px; margin-bottom: 10px; }
+  .app .apropos-texte { font-size: 15.5px; line-height: 1.55; }
+  .app .mission { margin-top: 14px; font-size: 14.5px !important; }
+  .apropos .traits { margin-top: 14px; gap: 6px; }
+}

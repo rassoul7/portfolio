@@ -12,6 +12,7 @@ import Rail from "./composants/Rail";
 import Projets from "./composants/Projets";
 import Pellicule from "./composants/Pellicule";
 import Conseil from "./composants/Conseil";
+import { useEchecsDirect } from "./echecsDirect";
 
 // Écran tactile sans souris : pas de survol possible, on dit « touchez » au lieu de « survolez ».
 const TACTILE = typeof matchMedia !== "undefined" && matchMedia("(hover: none)").matches;
@@ -207,7 +208,8 @@ export default function App() {
     { id: "passions", n: "06", libelle: t.passions.titre },
     { id: "contact", n: "07", libelle: t.contact },
   ];
-  const ech = profil.echecs;
+  // Stats en direct depuis Chess.com (valeurs du build en attendant ou en secours).
+  const ech = useEchecsDirect(profil.echecs);
 
   return (
     <div ref={racine} className={recruteur ? "app recruteur" : "app"}>
@@ -325,10 +327,10 @@ export default function App() {
               <h3>{t.passions.echecs.titre}</h3>
               <div className="chiffres">
                 <div className="brillants"><i aria-hidden="true">!!</i><b data-compte={ech.brillants}>{ech.brillants}</b><span>{t.passions.echecs.brillants}</span></div>
-                <div><b data-compte={ech.rapide.actuel}>{ech.rapide.actuel}</b><span>{t.passions.echecs.rapide} · {t.passions.echecs.meilleur} {ech.rapide.meilleur}</span></div>
-                <div><b data-compte={ech.blitz.actuel}>{ech.blitz.actuel}</b><span>{t.passions.echecs.blitz} · {t.passions.echecs.meilleur} {ech.blitz.meilleur}</span></div>
-                <div><b data-compte={ech.tactique}>{ech.tactique}</b><span>{t.passions.echecs.tactique}</span></div>
-                <div><b data-compte={ech.rapide.parties + ech.blitz.parties}>{(ech.rapide.parties + ech.blitz.parties).toLocaleString(langue)}</b><span>{t.passions.echecs.parties}</span></div>
+                <div><b key={`r${ech.rapide.actuel}`} data-compte={ech.rapide.actuel}>{ech.rapide.actuel}</b><span>{t.passions.echecs.rapide} · {t.passions.echecs.meilleur} {ech.rapide.meilleur}</span></div>
+                <div><b key={`b${ech.blitz.actuel}`} data-compte={ech.blitz.actuel}>{ech.blitz.actuel}</b><span>{t.passions.echecs.blitz} · {t.passions.echecs.meilleur} {ech.blitz.meilleur}</span></div>
+                <div><b key={`t${ech.tactique}`} data-compte={ech.tactique}>{ech.tactique}</b><span>{t.passions.echecs.tactique}</span></div>
+                <div><b key={`p${ech.rapide.parties + ech.blitz.parties}`} data-compte={ech.rapide.parties + ech.blitz.parties}>{(ech.rapide.parties + ech.blitz.parties).toLocaleString(langue)}</b><span>{t.passions.echecs.parties}</span></div>
               </div>
               <p>{t.passions.echecs.texte}</p>
               <a href={ech.profil} target="_blank" rel="noreferrer" data-curseur="Chess.com">{t.passions.echecs.lien} ↗</a>
