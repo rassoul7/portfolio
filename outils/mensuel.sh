@@ -2,7 +2,7 @@
 # Mise à jour mensuelle du portfolio à partir du vault ~/CARRIERE (lancée par un minuteur systemd, le 1er du mois).
 #   1. ~/CARRIERE : outils/generer.py régénère les CV (dont les versions web sans téléphone) et les notes Obsidian ;
 #   2. publier.sh : export du profil (avec les gardes : téléphone, noms interdits, éléments « a_confirmer » exclus),
-#      stats Chess.com du moment, build, puis mise en ligne sur rassoul7.github.io ;
+#      stats Chess.com du moment, build, puis mise en ligne sur rassoulname.dev ;
 #   3. les données mises à jour sont commitées et poussées sur github.com/rassoul7/portfolio.
 # Journal : ~/.local/state/portfolio/mensuel.log. Une notification de bureau dit comment ça s'est passé.
 set -euo pipefail
